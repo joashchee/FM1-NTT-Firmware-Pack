@@ -1,0 +1,7 @@
+# Firmware that is NOT in the pack but is watched, and why (scripts/check-firmware-updates.py). Columns: name, kind (github | page), target, seen, why.
+# "seen" is the release tag last read; --write-seen updates it after a review.
+name	kind	target	seen	why
+SLOOP	github	https://github.com/isod89/sloop-fm1	v2.8.5	GPL-3.0 but its source carries a reserved icon atlas (terms unpublished): add once it drops it.
+Melodee	github	https://github.com/keremimo/melodee	v1.6.1	GPL-3.0 but embeds Casio CZ-1 and Sequential Prophet-5/10 factory data: add once that is dropped or licensed.
+X0X	github	https://github.com/charlesvestal/fm1-x0x	v1.2.2	GPL-3.0 with TR-909 samples via a third-party project and a break generator used by permission: the maintainer's call.
+Quod	github	https://github.com/tulpasoftworks/quod	v0.3	MIT repository, GPL-3.0-only firmware: fits the pack, not yet checked.

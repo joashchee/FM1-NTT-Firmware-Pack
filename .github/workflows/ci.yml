@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - name: The pack's own rules (manifest, hashes, licences, sources, no stray firmware)
+        run: python3 scripts/check-bundled.py --pack .
+      - name: Tests of the checkers
+        run: |
+          python3 scripts/test_check_bundled.py
+          python3 scripts/test_check_firmware_updates.py

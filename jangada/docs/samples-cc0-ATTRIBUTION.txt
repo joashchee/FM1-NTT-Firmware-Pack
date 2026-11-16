@@ -1,0 +1,13 @@
+Felucca SAMPLE engine - source material (Jangada 0.9.8: the hand percussion of the PERC kit only)
+Retrieved: 2026-10-02 (first ~400 KB of each file)
+Licence: CC0 1.0 Universal (public domain dedication)
+  https://creativecommons.org/publicdomain/zero/1.0/
+Sources: Versilian Studios (Sam Gossner)
+  VSCO-2 Community Edition  https://github.com/sgossner/VSCO-2-CE  (repository licence: CC0-1.0)
+  VCSL                      https://github.com/sgossner/VCSL       (repository licence: CC0-1.0)
+
+KIT/00_Tamb1_Hit_v2_rr1_Mid.wav  <-  sgossner/VCSL: Idiophones/Struck Idiophones/Tambourine 1/Tamb1_Hit_v2_rr1_Mid.wav
+KIT/01_Mid_ShakerDouble_Down_rr1.wav  <-  sgossner/VCSL: Idiophones/Struck Idiophones/Shaker, Small/Mid_ShakerDouble_Down_rr1.wav
+KIT/02_Conga_HitN_v2_rr1_Sum.wav  <-  sgossner/VCSL: Membranophones/Struck Membranophones/Conga/Conga_HitN_v2_rr1_Sum.wav
+KIT/03_Claves1_Hit_v2_rr1_Mid.wav  <-  sgossner/VCSL: Idiophones/Struck Idiophones/Claves/Claves1_Hit_v2_rr1_Mid.wav
+KIT/04_wood_click_mp.wav  <-  sgossner/VCSL: Idiophones/Struck Idiophones/Woodblock/wood_click_mp.wav

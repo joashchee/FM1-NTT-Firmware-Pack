@@ -1,0 +1,29 @@
+name: Request the corresponding source
+description: You received a firmware from the FM1-NTT Firmware Pack and want its source another way (GPL-3.0 section 6(b) written offer).
+title: "Source request: <firmware and version>"
+labels: ["source-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every firmware in this repository already has its complete corresponding source beside it (`<family>/source/`). Use this form if you received a firmware
+        from the pack by another route and want the source another way. The offer runs for three years from the date you received the firmware, at no more than the cost of copying.
+  - type: input
+    id: firmware
+    attributes:
+      label: Which firmware and version
+      placeholder: "Felucca 1.8.2"
+    validations:
+      required: true
+  - type: input
+    id: received
+    attributes:
+      label: When and how you received it
+      placeholder: "2026-11-20, from the FM1-NTT-firmware-pack .deb"
+    validations:
+      required: true
+  - type: textarea
+    id: how
+    attributes:
+      label: How you want the source
+      description: A different format or medium than the archive in this repository. Do not put personal details in a public issue.
