@@ -5,7 +5,7 @@ emulator for FM-1 firmware, can run on a computer, in a browser or on an R36S: *
 provenance of every file.** It is a **separate repository on purpose**: FM1-NTT's own code is MIT and its repository and app package hold none of this, so the GPL's duties
 (source, notices, no added terms) stay with the firmware and never reach the MIT code.
 
-> **Early days.** Three firmwares, each booted in FM1-NTT's emulator on a Mac; never flashed to a real FM-1 by this project and never run on an R36S. Flashing a
+> **Early days.** Nine firmwares, each booted in FM1-NTT's emulator on a Mac; never flashed to a real FM-1 by this project and never run on an R36S. Flashing a
 > real FM-1 is at your own risk (see FM1-NTT's `docs/fm-1_reference-kit.md`, section 9).
 
 ## What is in it
@@ -16,6 +16,13 @@ provenance of every file.** It is a **separate repository on purpose**: FM1-NTT'
 | `fomni/` | **FoMni-1 0.4.1**: Omnichord-style chord harp with rhythm patterns | Charles Vestal | GPL-3.0-only | GitHub's tag archive |
 | `jangada/` | **Jangada 1.0.1**: drones and dark superwaves | zednaked | GPL-3.0-only | GitHub's tag archive |
 | `skiff/` | **Skiff 2.6**: a Felucca fork with SLICE and SAMPLE engines (the FM-1 package only; its SMK-37 packages are not taken) | illuminus5 | GPL-3.0-only | GitHub's tag archive |
+| `frasil/` | **FRASIL 3.3.1**: ambient drones, GLINT FM bells, a 32-step sequencer (the FM-1 package only; its SMK-37 packages are not taken) | Styves Goupil | MPL-2.0 (with Apache-2.0, BSD-2-Clause, OFL-1.1 parts) | the tag's tree with its submodules, assembled here |
+| `midimon/` | **MIDIMON 0.5**: a MIDI monitor and router (TRS, USB, USB host, BLE) | ignis32 | MPL-2.0 (with Apache-2.0, BSD-2-Clause, OFL-1.1 parts) | the tag's tree with its submodules, assembled here |
+| `modelar/` | **MODELAR 0.3**: a semi-modular drone synth played like a Kaoss Pad | hirakos999 | MPL-2.0 (with MIT, Apache-2.0, OFL-1.1 parts) | the tag's tree with its submodules, assembled here |
+| `j6/` | **J6 1.4.0**: a JUNO-60-style six-voice polysynth | JackieAlacrity2373 | MPL-2.0 (with MIT, Apache-2.0, OFL-1.1 parts) | the tag's tree (the platform is vendored in it) |
+| `trio/` | **TRIO 0.1.1**: a jazz trio, neural networks walking the bass and playing the drums | Reytian | MPL-2.0 (with Apache-2.0, BSD-2-Clause, OFL-1.1 parts; weights trained on CC BY 4.0 data, attribution kept) | the tag's tree with its submodules, assembled here |
+
+The five MPL-2.0 entries (added 2026-11-18) are weak copyleft: their `SOURCES.md` says how the source is available (MPL-2.0 section 3.2) and keeps the same written offer.
 
 Each folder holds the `.fwsc`, `source/<archive>`, the licence texts (`LICENSE-*.txt`), the author's own licensing notes (`LICENSING-upstream.md`), `SOURCES.md` (where it came from,
 what is inside under which licence, the caveats found, the written offer) and `NOTICE`. `MANIFEST.tsv` lists every file with its SHA-256, size, licence expression, source URL, the commit or tag

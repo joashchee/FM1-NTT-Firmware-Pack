@@ -1,0 +1,5 @@
+FRASIL 3.3.1, redistributed unmodified with FM1-NTT's firmware pack.
+
+Copyright (C) 2026 Styves Goupil and the authors of the platform it is built on (Charles Vestal's fm1-base; Leo Kuroshita, Hügelton Instruments, felucca-bsp; Kerem Kilic and others, see LICENSING-platform.md and NOTICE-felucca-bsp.txt). MPL-2.0 AND Apache-2.0 AND BSD-2-Clause AND OFL-1.1: MPL-2.0 (LICENSE-MPL-2.0.txt), file by file; Apache-2.0 (JieLi AC79 SDK files), BSD-2-Clause (micro-ecc), SIL OFL 1.1 (Barlow, Terminus). The complete source is in source/ and the written offer is in SOURCES.md.
+
+M-VAVE and FM-1 are trademarks of their owners; not affiliated with M-VAVE.
