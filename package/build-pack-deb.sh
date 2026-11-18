@@ -68,7 +68,7 @@ Installed-Size: $size_kb
 Suggests: r36s-fm1ntt
 Section: games
 Priority: optional
-Description: FM1-NTT Firmware Pack: Felucca, FoMni-1 and Jangada (GPL-3.0) with their source
+Description: FM1-NTT Firmware Pack: Felucca, FoMni-1, Jangada and Skiff (GPL-3.0) with their source
  GPL firmware for the M-VAVE FM-1, for FM1-NTT's emulator (its FILES panel lists them, marked G). Each is the author's own, unmodified, with its
  complete corresponding source and licence texts. A separate package from a separate repository so the MIT app carries no GPL; install it only if you
  accept the GPL's terms. Source requests: https://github.com/joashchee/FM1-NTT-Firmware-Pack/issues

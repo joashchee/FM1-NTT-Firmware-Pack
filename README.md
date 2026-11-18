@@ -15,6 +15,7 @@ provenance of every file.** It is a **separate repository on purpose**: FM1-NTT'
 | `felucca/` | **Felucca 1.8.2**: multi-engine synth, the base most community firmwares build on | Leo Kuroshita, Hügelton Instruments | GPL-3.0-only | the author's own complete archive, submodules included |
 | `fomni/` | **FoMni-1 0.4.1**: Omnichord-style chord harp with rhythm patterns | Charles Vestal | GPL-3.0-only | GitHub's tag archive |
 | `jangada/` | **Jangada 1.0.1**: drones and dark superwaves | zednaked | GPL-3.0-only | GitHub's tag archive |
+| `skiff/` | **Skiff 2.6**: a Felucca fork with SLICE and SAMPLE engines (the FM-1 package only; its SMK-37 packages are not taken) | illuminus5 | GPL-3.0-only | GitHub's tag archive |
 
 Each folder holds the `.fwsc`, `source/<archive>`, the licence texts (`LICENSE-*.txt`), the author's own licensing notes (`LICENSING-upstream.md`), `SOURCES.md` (where it came from,
 what is inside under which licence, the caveats found, the written offer) and `NOTICE`. `MANIFEST.tsv` lists every file with its SHA-256, size, licence expression, source URL, the commit or tag
