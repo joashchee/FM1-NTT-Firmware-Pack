@@ -135,6 +135,37 @@ def stray_firmware(repo, listed, problems, hint):
                     problems.append("%s: a firmware file that no manifest lists (%s)" % (os.path.relpath(p, repo), hint))
 
 
+def ntt_problems(root, hint, skip_pack_repo=True):
+    """Instrument packages (`*.fm1i`, docs/PORTING.md) carry their source's licence on a `licence =` line. In the MIT app's repository or a build, only the permissive allowlist
+    is allowed: a port of a GPL firmware is that firmware's data and belongs in the Pack repository."""
+    problems = []
+    for dirpath, dirnames, filenames in os.walk(root):
+        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not (skip_pack_repo and d == PACK_REPO_NAME)]
+        for name in filenames:
+            if not name.endswith(".fm1i"):
+                continue
+            p = os.path.join(dirpath, name)
+            lic = None
+            try:
+                with open(p, encoding="utf-8") as f:
+                    for line in f:
+                        k, _, v = line.partition("=")
+                        if k.strip() == "licence":
+                            lic = v.strip()
+                            break
+            except (OSError, UnicodeDecodeError):
+                pass
+            rel = os.path.relpath(p, root)
+            if not lic:
+                problems.append("%s: an instrument package with no licence line" % rel)
+                continue
+            for term in lic.split(" AND "):
+                if term.strip() not in PERMISSIVE:
+                    problems.append("%s: licence term %r is not permissive (%s)" % (rel, term.strip(), hint))
+                    break
+    return problems
+
+
 def check(repo):
     """The MIT app's repository: the permissive tier, no copyleft pack inside, no stray firmware."""
     problems, listed = [], set()
@@ -144,6 +175,7 @@ def check(repo):
     if os.path.isfile(os.path.join(repo, "MANIFEST.tsv")):
         problems.append("MANIFEST.tsv at the root: that is a pack manifest; this repository holds only bundled-firmware/")
     stray_firmware(repo, listed, problems, "bring-your-own firmware belongs outside the repository; copyleft firmware belongs in the FM1-NTT Firmware Pack repository")
+    problems += ntt_problems(repo, "a port of copyleft firmware belongs in the FM1-NTT Firmware Pack repository")
     if os.path.isdir(os.path.join(repo, PACK_REPO_NAME)):
         print("check-bundled: WARNING: %s/ is inside this repository: it is a separate repository; move it out (mv %s ..)" % (PACK_REPO_NAME, PACK_REPO_NAME), file=sys.stderr)
     return problems
@@ -182,6 +214,7 @@ def check_no_pack(repo, target, pack_manifest=None):
                 cells = line.rstrip("\n").split("\t")
                 if len(cells) == len(BASE_COLUMNS):
                     allowed_fw.add(cells[1])
+    problems += ntt_problems(target, "no copyleft port in a permissive-only build", skip_pack_repo=False)
     for dirpath, _, filenames in os.walk(target):
         for name in filenames:
             p = os.path.join(dirpath, name)

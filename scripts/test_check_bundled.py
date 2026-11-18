@@ -173,6 +173,19 @@ class Separation(unittest.TestCase):
         open(os.path.join(inner, "x.fwsc"), "wb").write(b"x")
         self.assertEqual(cb.check(self.repo), [])
 
+    def test_an_instrument_package_of_copyleft_firmware_is_refused(self):
+        ok = os.path.join(self.repo, "p.fm1i")
+        open(ok, "w").write("fm1i = 1\nengine = fm6\nlicence = MIT AND Apache-2.0\n")
+        self.assertEqual(cb.check(self.repo), [])
+        open(ok, "w").write("fm1i = 1\nengine = fm6\nlicence = MIT AND GPL-3.0-only\n")
+        self.assertTrue(any("not permissive" in p for p in cb.check(self.repo)))
+        open(ok, "w").write("fm1i = 1\nengine = fm6\n")
+        self.assertTrue(any("no licence line" in p for p in cb.check(self.repo)))
+        build = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, build)
+        open(os.path.join(build, "x.fm1i"), "w").write("fm1i = 1\nlicence = LGPL-2.1-only\n")
+        self.assertTrue(any("not permissive" in p for p in cb.check_no_pack(self.repo, build, None)))
+
     def test_a_mac_app_store_build_may_hold_no_pack_file(self):
         manifest = os.path.join(self.repo, "pack-manifest.tsv")
         src = b"source archive"
